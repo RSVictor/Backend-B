@@ -12,6 +12,7 @@ const hiragana = '\u3041';// simbolo ultilizando codigo utf
 let tel_estudante = null;// variavel com valor vazio
 let cpf = undefined;
 
+console.log(tel_estudante)
 console.log(cpf);
 console.log(cifrao);
 console.log(aMaiusculo);
