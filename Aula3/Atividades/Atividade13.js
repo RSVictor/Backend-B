@@ -1,6 +1,6 @@
 function isPalindrome(word){
-    const reversedword = word.split('').reverse().join('');
-    return word === reversedword;
+    const palavrareversa = word.split('').reverse().join('');
+    return word === palavrareversa;
 }
 
 const palavra = 'ovo';
