@@ -2,7 +2,7 @@
 class Casa{
     // cria o construtor que serve para passar parametros para a classe
     constructor(){
-        this.color = null;// parametros de cor
+        this.cor = null;// parametros de cor
         this.qtdecomodos=null; // parametro de qtde de comodos
     }
 
@@ -24,7 +24,7 @@ class Casa{
                    console.log(`Não existe ${qtde} janelas para serem fechadas`);
             }
             else{
-             console.log(`Fechar ${qtde} janelas`);
+             console.log(`Fecha ${qtde} janelas`);
             }
             
         }
