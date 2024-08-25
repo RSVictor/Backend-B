@@ -1,44 +1,46 @@
-class Carro{
-    constructor(){
+class Carro {
+    constructor() {
         this.marca = null;
         this.modelo = null;
         this.ano = null;
-        this.motor = false;
-
+        this.motor = true; 
     }
-    exibeinfo(marca,modelo,ano,motor){
-        console.log(`O carro da marca ${marca}, modelo ${modelo} do ano ${ano} esta com o motor ${motor}`)
-    }
-
-    ligar_motor(){
-        if(motor == false){
-            motor = True
-            console.log(`O motor esta desligado`);        
+  
+    ligar_motor() {
+        if (!this.motor) {
+            this.motor = true;
+            console.log('O motor está ligado.');
+        } else {
+            console.log('O motor já está ligado.');
         }
-        else if (motor = false){
-            console.log(`O motor esta já esta desligado`); 
+    }
+    
+    desliga_motor() {
+        if (this.motor) {
+            this.motor = false;
+            console.log('O motor está desligado.');
+        } else {
+            console.log('O motor já está desligado.');
         }
-      }
-    
-    
-    desliga_motor(){
-        if(motor == true){
-            motor = false
-            console.log(`O motor esta ligado`);        
-    }
-    else if(this.motor = true){
-        console.log(`O motor já esta ligado`);
     }
     
+    status_motor() {
+        return this.motor ? 'o motor está ligado.' : 'o motor está desligado.';
+    }
+    
+    exibeinfo() {
+        console.log(`O carro da marca ${this.marca}, modelo ${this.modelo} do ano ${this.ano} ${this.status_motor()}`);
+    }
 }
-    }
 
 
+let carro = new Carro();
+carro.marca = "VW";
+carro.modelo = "Gol";
+carro.ano = 2022;
 
-        let carro = new Carro()
-        carro.marca = "VW";
-        carro.modelo = "Gol";
-        carro.ano = 2022;
-        carro.exibeinfo();
-        carro.ligar_motor(),
-        carro.desliga_motor();
+carro.exibeinfo(); 
+carro.ligar_motor();
+carro.exibeinfo(); 
+carro.desliga_motor(); 
+carro.exibeinfo();
