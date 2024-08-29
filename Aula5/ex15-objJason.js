@@ -4,7 +4,8 @@ const dadoP = {
     endereco:{
         rua:'Av Amoreiras',
         numero: 77,
-    }
+    },
+    
 }
 
 console.log(dadoP)
