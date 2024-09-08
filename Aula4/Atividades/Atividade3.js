@@ -1,107 +1,58 @@
-class Automovel{
-    constructor(){
-        this.cor = null;
-        this.modelo = null;
-        this.tipocombustivel = null;
-        this.qntRodas = null;
+class Maquina {
+    constructor(nome, qntEixos, rotacaoMin, consumo) {
+        this.nome = nome || 'Máquina desconhecida';
+        this.qntEixos = qntEixos || 0;
+        this.rotacaoMin = rotacaoMin || 0;
+        this.consumo = consumo || '0 kWh';
     }
 }
 
-class Carro extends Automovel{
-    constructor(){
-        super();
-        this.ligado = false;
-        this.vidroAberto = false;        
+class Furadeira extends Maquina {
+    constructor(nome, rotacaoMin, consumo) {
+        super(nome, 0, rotacaoMin, consumo); 
+        this.ligada = false;
     }
 
-    ligar(){
-        this.ligado = true;
-        console.log(`O carro ${this.modelo} esta ligado.`);
+    ligar() {
+        if (!this.ligada) {
+            this.ligada = true;
+            console.log(`A ${this.nome} está ligada.`);
+        } else {
+            console.log(`A ${this.nome} já está ligada.`);
+        }
     }
-    desligar(){
-        this.ligado = false;
-        console.log(`O carro ${this.modelo} esta desligado.`);
+
+    desligar() {
+        if (this.ligada) {
+            this.ligada = false;
+            console.log(`A ${this.nome} está desligada.`);
+        } else {
+            console.log(`A ${this.nome} já está desligada.`);
+        }
     }
-    abrirVidro(){
-        this.aberto = true;
-        console.log(`O vidro do carro ${this.modelo} esta aberto.`);
-    }
-    fecharVidro(){
-        this.aberto = false;
-        console.log(`O vidro do carro ${this.modelo} esta fechado.`);
-    }
+
+    ajustarVelocidade(novaRotacao) {
+        if (this.ligada) {
+            console.log(`A ${this.nome} está ligada. Deseja ajustar a velocidade para ${novaRotacao} rotações por minuto? (S/N)`);
            
-    exibe_infoCarro(){
-        console.log(`O carro ${this.modelo} da cor ${this.cor} do tipo ${this.tipocombustivel} de ${this.qntRodas} está com o motor ${this.ligado ? 'ligado' : 'desligado'} e o viro está ${this.aberto ? 'aberto' : 'fechado'}.`)
-    }
-
-}
-
-class Moto extends Automovel{
-    constructor(){
-        super();
-
-    }
-    exibe_infoMoto(){
-        console.log(`A moto ${this.modelo} da cor ${this.cor} do tipo ${this.tipocombustivel} de ${this.qntRodas} esta desligada.`)
+            const confirmar = true; 
+            if (confirmar) {
+                this.rotacaoMin = novaRotacao;
+                console.log(`A ${this.nome} agora está com ${this.rotacaoMin} rotações por minuto.`);
+            } else {
+                console.log(`O ajuste de velocidade foi cancelado.`);
+            }
+        } else {
+            console.log(`A ${this.nome} está desligada. Ligue a máquina para ajustar a velocidade.`);
+        }
     }
 }
 
-class Caminhao extends Automovel{
-    constructor(){
-        super();
-    } 
-    ligar(){
-        this.ligado = true;
-        console.log(`O caminhão ${this.modelo} esta ligado.`);
-    }
-    desligar(){
-        this.ligado = false;
-        console.log(`O caminhão ${this.modelo} esta desligado.`);
-    }
-    abrirVidro(){
-        this.aberto = true;
-        console.log(`O vidro do caminhão ${this.modelo} esta aberto.`);
-    }
-    fecharVidro(){
-        this.aberto = false;
-        console.log(`O vidro do caminhão ${this.modelo} esta fechado.`);
-    }
-    exibe_infoCaminhao(){
-        console.log(`O caminhão ${this.modelo} da cor ${this.cor} do tipo ${this.tipocombustivel} de ${this.qntRodas} está com o motor ${this.ligado ? 'ligado' : 'desligado'} e o viro está ${this.aberto ? 'aberto' : 'fechado'}.`)
-    }
-}
 
-let carro = new Carro();
-    carro.modelo = 'Zafira';
-    carro.cor= 'Cinza';
-    carro.tipocombustivel = 'Flex';
-    carro.qntRodas = '4 rodas';
+let furadeira = new Furadeira('Furadeira de impacto', 1500, '160 kWh');
 
-carro.ligar()
-carro.abrirVidro();
-carro.exibe_infoCarro();
-carro.fecharVidro();
-carro.desligar();
-carro.exibe_infoCarro()
 
-let moto = new Moto();
-    moto.modelo = "Yamaha";
-    moto.cor = "Vermelho";
-    moto.tipocombustivel = "Gasolina";
-    moto.qntRodas = "2 rodas";
-
-moto.exibe_infoMoto();
-
-let caminhao = new Caminhao();
-    caminhao.modelo = "Scania P310";
-    caminhao.cor = "Azul";
-    caminhao.tipocombustivel = "Disel";
-    caminhao.qntRodas = "18 rodas";
-
-caminhao.ligar()
-caminhao.abrirVidro();
-caminhao.exibe_infoCaminhao();
-caminhao.fecharVidro();
-caminhao.desligar();
-caminhao.exibe_infoCaminhao();
+furadeira.ligar();
+furadeira.ajustarVelocidade(2000);
+furadeira.desligar();
+furadeira.ajustarVelocidade(1000);
