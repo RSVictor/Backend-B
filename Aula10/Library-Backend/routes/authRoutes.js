@@ -8,6 +8,6 @@ router.post('/register',authController.register)
 
 // rota para login de usuarios
 
-router.post('/login',authController.login)
+router.post('/login', authController.login)
 
 module.exports = router // Exporta o roteador para o uso no app.js

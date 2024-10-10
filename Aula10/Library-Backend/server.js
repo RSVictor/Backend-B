@@ -1,10 +1,11 @@
 // arquivo principal da api
 // inicia o servidor
-require('dotenv').config() // Carrega as variaveis do arquivo venv
+
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyParser = require('body-parser');
+require('dotenv').config() // Carrega as variaveis do arquivo venv
 // inicialização do app
 
 const app = express();
