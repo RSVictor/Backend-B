@@ -25,7 +25,7 @@ mongoose.connect('mongodb+srv://Victor:victor123@cluster0.ngnna.mongodb.net/Mark
 
 // Importação das rotas
 const ProductsRoutes = require('./routes/product');
-app.use('/api/products',ProductsRoutes); // irá retornar a rota dos livros
+app.use('/api/products',ProductsRoutes); // irá retornar a rota dos produtos
 app.use('/api/auth',authRoutes);
 // Define a porta do servidor
 app.listen(5000,()=>{
