@@ -16,7 +16,7 @@ app.use(express.json());
 const authRoutes = require('./routes/authRouters')
 
 // Conexão ao MongoDB
-mongoose.connect('mongodb+srv://Victor:victor123@cluster0.ngnna.mongodb.net/library', {
+mongoose.connect('mongodb+srv://Victor:victor123@cluster0.ngnna.mongodb.net/Market', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })

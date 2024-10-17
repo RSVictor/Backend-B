@@ -16,7 +16,7 @@ try {
        const hashedPassword = await bcrypt.hash(password, 10);
        
        // Cria um novo usuario
-       const newUser = new user({username, password: hashedPassword});
+       const newUser = new User({username, password: hashedPassword});
        await newUser.save();
        res.status(201).json({ message: 'Usuário registrado com sucesso'});
 } catch (error) {

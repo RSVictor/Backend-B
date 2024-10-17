@@ -1,14 +1,14 @@
 const express = require('express');// Importamos o Express
-const Products = require('../models/products');// Importamos o modelo Book
-const router = express.Router();// Importamos o modelo Book
+const Products = require('../models/products');// Importamos o modelo 
+const router = express.Router();// Importamos o modelo 
 
 //Criação (POST)
 router.post('/', async(req,res) => {
-    const {descricao, quantidade, valor,dataValidade } = req.body; // Extraimos os dados da requisição
+    const {descricao, quantidade, valor, dataValidade } = req.body; // Extraimos os dados da requisição
     try{
-        const newProduct = new Products({descricao, quantidade, valor,dataValidade});// Criamos e salvamos o produto
-        await newProduct.save();
-        res.status(201).json(newproduct); // Retornamos o produto criado
+        const newProducts = new Products({descricao, quantidade, valor, dataValidade});// Criamos e salvamos o produto
+        await newProducts.save();
+        res.status(201).json(newProducts); // Retornamos o produto criado
     } catch(error) {
         res.status(500).json({message: 'Erro ao cadastrar o produto', error});
     }
