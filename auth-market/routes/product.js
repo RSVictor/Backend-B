@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
         const products = await Products.find();// Buscamos todos os produtos
         res.status(2).json(products);// Retornamos a lista de produtos 
     } catch (error) {
-        res.status(500).json({ message: 'Erro ao buscar veiculo',error}); // Retornamos erro, se houver
+        res.status(500).json({ message: 'Erro ao buscar produto',error}); // Retornamos erro, se houver
     }
 });
 

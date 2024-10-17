@@ -6,7 +6,7 @@ const BookSchema = new mongoose.Schema({
     descricao: { type: String, required:true },
     quantidade: { type: Number, required: true},
     valor: { type: Number},
-    dataValidade: {type: Number},
+    dataValidade: {type: String},
 })
 
 // Exportando o modelo
