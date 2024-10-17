@@ -1,5 +1,5 @@
 const express = require('express');// Importamos o Express
-const Product = require('../models/products');// Importamos o modelo Book
+const Products = require('../models/products');// Importamos o modelo Book
 const router = express.Router();// Importamos o modelo Book
 
 //Criação (POST)
