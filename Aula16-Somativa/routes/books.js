@@ -20,11 +20,11 @@ router.post('/', upload.single('image'),async (req,res) => {
         const { title, author, year, isbn} = req.body;
         const image = req.file.path;
         
-        const newGame = new Book({
+        const newBook = new Book({
             title, author, year, isbn
         });
-        await newGame.save();
-        res.status(201).json({ message: 'Livro cadastrado com sucesso', game: newGame});
+        await newBook.save();
+        res.status(201).json({ message: 'Livro cadastrado com sucesso', book: newBook});
     }catch (error) {
         res.status(500).json({ message: 'Erro ao cadastrar o Livro', error });
     }
@@ -92,7 +92,7 @@ router.delete('/:id', async (req, res) => {
                     return res.status(500).json({ message: 'Erro ao deletar a imagem do livro', error: err });
                 }
             });
-        }
+        },
 
         // Deletar o livro do banco de dados
         await Book.findByIdAndDelete(req.params.id);
